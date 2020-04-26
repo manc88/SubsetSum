@@ -539,7 +539,7 @@ std::vector<int> CAddInNative::clc_LongSumEl(int sum, int ds)
 
 	int k = 0;
 
-	for (unsigned int i = 0; i <= arr.size(); i++) {
+	for (int i = 0; i <= arr.size(); i++) {
 		for (int j = n - arr[i]; j >= 0; j--) {
 			if (ptra[j][0] >= 0) {
 
