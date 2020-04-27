@@ -522,7 +522,7 @@ std::vector<int> CAddInNative::clc_LongSumEl(int sum, int ds)
 
 	std::vector<int> res(0, 0);
 	
-	if (n > 2147483647) {
+	if (n > 2147483647 || sum == 0 || n==0) {
 		return res;
 	}
 
