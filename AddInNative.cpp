@@ -431,8 +431,13 @@ bool CAddInNative::CallAsProc(const long lMethodNum,
     case eMethAdd:
 
 		Log(L"push " + std::to_wstring(paParams->lVal));
-		arr.push_back(paParams->lVal);
-
+		if (paParams->lVal > 0) {
+			arr.push_back(paParams->lVal);
+		}
+		else {
+			return false;
+		}
+		
         break;
     case eMethClear:
 		Log(L"CallAsProc eMethClear");
@@ -516,13 +521,12 @@ bool CAddInNative::CallAsFunc(const long lMethodNum,
 std::vector<int> CAddInNative::clc_LongSumEl(int sum, int ds)
 {
 
-
 	int n = sum + ds;
 	sum = sum - ds;
 
 	std::vector<int> res(0, 0);
 	
-	if (n > 2147483647 || sum == 0 || n==0) {
+	if (n > 2147483647 || sum <= 0 || n <= 0) {
 		return res;
 	}
 
